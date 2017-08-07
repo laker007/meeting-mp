@@ -16,6 +16,20 @@ Page({
       url: '../logs/logs'
     })
   },
+  login: function() {
+    wx.navigateTo({
+      url: './pages/register/register',
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
+  },
   onLoad: function () {
     console.log('onLoad')
     var that = this

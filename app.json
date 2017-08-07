@@ -2,6 +2,7 @@
   "pages": [
     "page/meeting/index",
     "page/me/index",
+    "page/me/pages/register/register",
     "page/logs/logs"
   ],
   "window": {
@@ -26,5 +27,11 @@
       "selectedIconPath": "image/tab_me_HL.png",
       "text": "我"
     }]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
   }
 }
