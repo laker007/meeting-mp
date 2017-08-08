@@ -1,32 +1,19 @@
 {
   "pages": [
-    "page/meeting/index",
-    "page/me/index",
-    "page/me/pages/register/register",
-    "page/logs/logs"
+    "page/main/index",
+
+    "page/main/pages/register/register",
+
+    "page/main/pages/reserve/reserve",
+
+    "page/main/pages/my-reserve/my-reserve",
+    "page/main/pages/my-meeting/my-meeting"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
-  },
-  "tabBar": {
-    "color": "#7a7e83",
-    "selectedColor": "#09bb07",
-    "borderStyle": "white",
-    "backgroundColor": "#ffffff",
-    "list": [{
-      "pagePath": "page/meeting/index",
-      "iconPath": "image/tab_meeting.png",
-      "selectedIconPath": "image/tab_meeting_HL.png",
-      "text": "会议预约"
-    }, {
-      "pagePath": "page/me/index",
-      "iconPath": "image/tab_me.png",
-      "selectedIconPath": "image/tab_me_HL.png",
-      "text": "我"
-    }]
   },
   "networkTimeout": {
     "request": 10000,
