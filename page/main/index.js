@@ -3,21 +3,16 @@
 var app = getApp()
 Page({
     data: {
-        motto: 'Hello World',
         userInfo: {},
-
-        countries: ["中国", "美国", "英国"],
-        countryIndex: 0,
-
         icons: {
             "reserve": "../../../image/icon_me_reserve.png",
             "meeting": "../../../image/icon_me_meeting.png",
         }
     },
 
-    register: function (){
+    userinfo: function () {
         wx.navigateTo({
-            url: './pages/register/register',
+            url: './pages/userinfo/userinfo',
             success: function(res){
                 // success
             },
@@ -25,6 +20,36 @@ Page({
                 // fail
             },
             complete: function() {
+                // complete
+            }
+        })
+    },
+
+    register: function () {
+        wx.navigateTo({
+            url: './pages/register/register',
+            success: function (res) {
+                // success
+            },
+            fail: function () {
+                // fail
+            },
+            complete: function () {
+                // complete
+            }
+        })
+    },
+
+    avatar: function () {
+        wx.navigateTo({
+            url: 'String',
+            success: function (res) {
+                // success
+            },
+            fail: function () {
+                // fail
+            },
+            complete: function () {
                 // complete
             }
         })
