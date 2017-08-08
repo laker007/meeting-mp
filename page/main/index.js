@@ -5,8 +5,8 @@ Page({
     data: {
         userInfo: {},
         icons: {
-            "reserve": "../../../image/icon_me_reserve.png",
-            "meeting": "../../../image/icon_me_meeting.png",
+            "reserve": "../../../image/icon_reserve.png",
+            "meeting": "../../../image/icon_meeting.png",
         }
     },
 
