@@ -9,7 +9,7 @@
         <view class="weui-cells weui-cells_after-title">
             <navigator url="./pages/reserve/reserve" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
                 <view class="weui-cell__hd">
-                    <image src="{{icons.meeting}}"></image>
+                    <image src="/image/icon_meeting.png"></image>
                 </view>
                 <view class="weui-cell__bd">会议预约</view>
                 <view class="weui-cell__ft weui-cell__ft_in-access"></view>
@@ -20,14 +20,14 @@
         <view class="weui-cells weui-cells_after-title">
             <navigator url="./pages/my-reserve/my-reserve" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
                 <view class="weui-cell__hd">
-                    <image src="{{icons.reserve}}"></image>
+                    <image src="/image/icon_reserve.png"></image>
                 </view>
                 <view class="weui-cell__bd" bindtap="reserve">我的预约</view>
                 <view class="weui-cell__ft weui-cell__ft_in-access"></view>
             </navigator>
             <navigator url="./pages/my-meeting/my-meeting" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
                 <view class="weui-cell__hd">
-                    <image src="{{icons.meeting}}"></image>
+                    <image src="/image/icon_meeting.png"></image>
                 </view>
                 <view class="weui-cell__bd">我的会议</view>
                 <view class="weui-cell__ft weui-cell__ft_in-access"></view>

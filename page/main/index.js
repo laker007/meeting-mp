@@ -4,10 +4,6 @@ var app = getApp()
 Page({
     data: {
         userInfo: {},
-        icons: {
-            "reserve": "../../../image/icon_reserve.png",
-            "meeting": "../../../image/icon_meeting.png",
-        }
     },
 
     userinfo: function () {
