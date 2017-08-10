@@ -21,8 +21,12 @@ Page({
             })
         })
         wx.request({
-            url: 'http://localhost:3001/api/user', //仅为示例，并非真实的接口地址
-            method: 'GET',
+            url: 'http://localhost:3001/api/meeting', //仅为示例，并非真实的接口地址
+            data: {
+                topic:'移动开发',
+                name:'haha'
+            },
+            method: 'POST',
             header: {
                 'content-type': 'application/json'
             },
