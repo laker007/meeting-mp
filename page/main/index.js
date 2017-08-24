@@ -34,16 +34,16 @@ Page({
                 // complete
             }
         })
-        wx.request({
-            url: 'http://localhost:3001/api/user',
-            Method:'GET',
-            header: {
-                'content-type': 'application/json'
-            },
-            success: function (res) {
-                console.log(res.data);
-            }
-        })
+        // wx.request({
+        //     url: 'http://localhost:3001/api/user',
+        //     Method:'GET',
+        //     header: {
+        //         'content-type': 'application/json'
+        //     },
+        //     success: function (res) {
+        //         console.log(res.data);
+        //     }
+        // })
     },
 
     avatar: function () {
