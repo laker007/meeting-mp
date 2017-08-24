@@ -6,13 +6,13 @@ Page({
         userInfo: {},
 
         companies: [],
-        companyIndex: 0,
+        companyIndex: -1,
 
         departments: [],
-        departmentIndex: 0,
+        departmentIndex: -1,
 
         teams: [],
-        teamIndex: 0,
+        teamIndex: -1,
         _userRegisterInfo: {}
     },
     onLoad: function () {
@@ -41,7 +41,6 @@ Page({
                         companies: res.data
                     })
                 }
-                that.getDepartmentAndTeamByCompanyIndex(that.data.companyIndex);
             }
         })
 
@@ -51,9 +50,22 @@ Page({
         this.setData({
             companyIndex: e.detail.value
         })
-        this.getDepartmentAndTeamByCompanyIndex(this.data.companyIndex);
+        this.getDepartmentByCompanyIndex(this.data.companyIndex);
     },
-    getDepartmentAndTeamByCompanyIndex: function (companyIndex) {
+    bindDepartmentChange: function (e) {
+        console.log('picker发送选择改变，携带值为', e.detail.value);
+        this.setData({
+            departmentIndex: e.detail.value
+        })
+        this.getTeamByDepartmentIndex(this.data.departmentIndex);
+    },
+    bindTeamChange: function (e) {
+        console.log('picker发送选择改变，携带值为', e.detail.value);
+        this.setData({
+            teamIndex: e.detail.value
+        })
+    },
+    getDepartmentByCompanyIndex: function (companyIndex) {
         var that = this;
         console.log(companyIndex);
         console.log(that.data);
@@ -64,13 +76,22 @@ Page({
                 'conetent-type': 'application/json'
             },
             data: {
-                Company: that.data.companies[companyIndex],
+                CompanyID: that.data.companies[companyIndex]._id,
             },
             success: function (res) {
                 console.log(res);
+                if (res.data.length) {
+                    that.setData({
+                        departments: res.data
+                    })
+                }
             }
         })
-
+    },
+    getTeamByDepartmentIndex: function (departmentIndex) {
+        var that = this;
+        console.log(departmentIndex);
+        console.log(that.data);
         wx.request({
             url: 'http://localhost:3000/api/v1/register/team',
             method: 'GET',
@@ -78,10 +99,15 @@ Page({
                 'conetent-type': 'application/json'
             },
             data: {
-                Company: that.data.companies[companyIndex],
+                DepartmentID: that.data.departments[departmentIndex]._id,
             },
             success: function (res) {
                 console.log(res);
+                if (res.data.length) {
+                    that.setData({
+                        teams: res.data
+                    })
+                }
             }
         })
     }
