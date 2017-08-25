@@ -34,7 +34,7 @@
             </navigator>
         </view>
 
-        <view class="weui-btn-area">
+        <view class="weui-btn-area" wx:if="{{!register}}">
             <button class="weui-btn" type="primary" bindtap="register">注册</button>
         </view>
 

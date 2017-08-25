@@ -36,10 +36,12 @@ App({
                   'content-type': 'application/json'
                 },
                 success: function (res) {
-                  console.log(res)
+                  console.log(res);
+                  that.globalData.openid = res.data.openid;
+                  that.globalData.register = res.data.register;
+                  console.log(that);
                 }
               })
-
             }
           })
         }
@@ -47,6 +49,6 @@ App({
     }
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
   }
 })

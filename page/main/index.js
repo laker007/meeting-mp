@@ -4,6 +4,7 @@ var app = getApp()
 Page({
     data: {
         userInfo: {},
+        register: false,
     },
 
     userinfo: function () {
@@ -34,16 +35,6 @@ Page({
                 // complete
             }
         })
-        // wx.request({
-        //     url: 'http://localhost:3001/api/user',
-        //     Method:'GET',
-        //     header: {
-        //         'content-type': 'application/json'
-        //     },
-        //     success: function (res) {
-        //         console.log(res.data);
-        //     }
-        // })
     },
 
     avatar: function () {
@@ -60,25 +51,21 @@ Page({
             }
         })
     },
+
     onLoad: function () {
-        console.log('onLoad')
-        var that = this
-        //调用应用实例的方法获取全局数据
+        console.log('onLoad');
+        var that = this;
+        // 调用应用实例的方法获取全局数据
         app.getUserInfo(function (userInfo) {
             //更新数据
             that.setData({
-                userInfo: userInfo
+                userInfo: userInfo,
+                register: app.globalData.register,
             })
+            console.log(that);
         })
-        // wx.request({
-        //     url: 'http://localhost:3001/api/user', //仅为示例，并非真实的接口地址
-        //     method: 'GET',
-        //     header: {
-        //         'content-type': 'application/json'
-        //     },
-        //     success: function (res) {
-        //         console.log(res)
-        //     }
-        // })
+    },
+    onReady: function() {
+        console.log('onReady');
     }
 })

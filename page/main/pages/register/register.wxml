@@ -39,7 +39,7 @@
         </view>
 
         <view class="weui-btn-area">
-            <button class="weui-btn" type="primary">注册</button>
+            <button class="weui-btn" type="primary" open-type="getUserInfo" bindtap="register">注册</button>
         </view>
 
     </view>
