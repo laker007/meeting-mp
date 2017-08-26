@@ -1,5 +1,7 @@
 {
   "pages": [
+    "page/main/pages/temp/temp",
+
     "page/main/index",
 
     "page/main/pages/userinfo/userinfo",

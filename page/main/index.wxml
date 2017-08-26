@@ -5,38 +5,43 @@
     </view>
     <view class="page__bd">
 
-        <view class="weui-cells__title">预约</view>
-        <view class="weui-cells weui-cells_after-title">
-            <navigator url="./pages/reserve/reserve" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-                <view class="weui-cell__hd">
-                    <image src="/image/icon_meeting.png"></image>
-                </view>
-                <view class="weui-cell__bd">会议预约</view>
-                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-            </navigator>
-        </view>
+        <block wx:if="{{register}}">
+            <view class="weui-cells__title">预约</view>
+            <view class="weui-cells weui-cells_after-title">
+                <navigator url="../../pages/reserve/reserve" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                    <view class="weui-cell__hd">
+                        <image src="/image/icon_meeting.png"></image>
+                    </view>
+                    <view class="weui-cell__bd">会议预约</view>
+                    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                </navigator>
+            </view>
 
-        <view class="weui-cells__title">查询</view>
-        <view class="weui-cells weui-cells_after-title">
-            <navigator url="./pages/my-reserve/my-reserve" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-                <view class="weui-cell__hd">
-                    <image src="/image/icon_reserve.png"></image>
-                </view>
-                <view class="weui-cell__bd" bindtap="reserve">我的预约</view>
-                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-            </navigator>
-            <navigator url="./pages/my-meeting/my-meeting" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-                <view class="weui-cell__hd">
-                    <image src="/image/icon_meeting.png"></image>
-                </view>
-                <view class="weui-cell__bd">我的会议</view>
-                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-            </navigator>
-        </view>
+            <view class="weui-cells__title">查询</view>
+            <view class="weui-cells weui-cells_after-title">
+                <navigator url="../../pages/my-reserve/my-reserve" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                    <view class="weui-cell__hd">
+                        <image src="/image/icon_reserve.png"></image>
+                    </view>
+                    <view class="weui-cell__bd" bindtap="reserve">我的预约</view>
+                    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                </navigator>
+                <navigator url="../../pages/my-meeting/my-meeting" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                    <view class="weui-cell__hd">
+                        <image src="/image/icon_meeting.png"></image>
+                    </view>
+                    <view class="weui-cell__bd">我的会议</view>
+                    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                </navigator>
+            </view>
+        </block>
 
-        <view class="weui-btn-area" wx:if="{{!register}}">
-            <button class="weui-btn" type="primary" bindtap="register">注册</button>
-        </view>
+        <block>
+            <view class="weui-btn-area" wx:if="{{!register}}">
+                <button class="weui-btn" type="primary" bindtap="register">注册</button>
+            </view>
+        </block>
+
 
     </view>
 </view>

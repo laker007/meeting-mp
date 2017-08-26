@@ -7,10 +7,11 @@ App({
     wx.setStorageSync('logs', logs)
   },
   getUserInfo: function (cb) {
+    console.log('app -> getUserInfo');
     var that = this
-    if (this.globalData.userInfo) {
-      typeof cb == "function" && cb(this.globalData.userInfo)
-    } else {
+    // if (this.globalData.userInfo) {
+    //   typeof cb == "function" && cb(this.globalData.userInfo);
+    // } else {
       //调用登录接口
       wx.login({
         success: function (data) {
@@ -39,16 +40,16 @@ App({
                   console.log(res);
                   that.globalData.openid = res.data.openid;
                   that.globalData.register = res.data.register;
-                  console.log(that);
                 }
               })
             }
           })
         }
       })
-    }
+    // }
   },
   globalData: {
     userInfo: null,
+    register: null,
   }
 })

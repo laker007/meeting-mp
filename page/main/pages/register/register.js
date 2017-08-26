@@ -18,13 +18,10 @@ Page({
     onLoad: function () {
         console.log('onLoad')
         var that = this;
-        var companies = [];
+        // var companies = [];
         //调用应用实例的方法获取全局数据
-        app.getUserInfo(function (userInfo) {
-            //更新数据
-            that.setData({
-                userInfo: userInfo
-            })
+        that.setData({
+            userInfo: app.globalData.userInfo
         })
 
         // 获取公司
@@ -135,8 +132,12 @@ Page({
                 },
                 success: function (res) {
                     console.log(res);
+                    wx.reLaunch({
+                        url:'../../pages/temp/temp'
+                    })
                 }
             })
+           
         } else {
             // 弹出提示 -> 让用户三个都进行选择
             wx.showModal({
