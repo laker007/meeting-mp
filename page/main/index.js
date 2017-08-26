@@ -37,21 +37,6 @@ Page({
         })
     },
 
-    avatar: function () {
-        wx.navigateTo({
-            url: 'String',
-            success: function (res) {
-                // success
-            },
-            fail: function () {
-                // fail
-            },
-            complete: function () {
-                // complete
-            }
-        })
-    },
-
     onLoad: function () {
         console.log('onLoad');
         var that = this;

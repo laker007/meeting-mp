@@ -38,7 +38,7 @@ App({
                 },
                 success: function (res) {
                   console.log(res);
-                  that.globalData.openid = res.data.openid;
+                  that.globalData.OpenID = res.data.openid;
                   that.globalData.register = res.data.register;
                 }
               })

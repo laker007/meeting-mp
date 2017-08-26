@@ -18,8 +18,8 @@
           <view class="weui-label">会议室</view>
         </view>
         <view class="weui-cell__bd">
-          <picker bindchange="bindCountryChange" value="{{countryIndex}}" range="{{countries}}">
-            <view class="weui-select weui-select_in-select-after">{{countries[countryIndex]}}</view>
+          <picker bindchange="bindMeetingRoomChange" value="{{meeting_roomIndex}}" range="{{meeting_rooms}}" range-key="{{'MeetingRoomName'}}">
+            <view class="weui-select weui-select_in-select-after">{{meeting_rooms[meeting_roomIndex].MeetingRoomName}}</view>
           </picker>
         </view>
       </view>
@@ -32,7 +32,7 @@
           <view class="weui-label">日期</view>
         </view>
         <view class="weui-cell__bd">
-          <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+          <picker mode="date" value="{{date}}" start="{{dateStart}}" bindchange="bindDateChange">
             <view class="weui-input">{{date}}</view>
           </picker>
         </view>

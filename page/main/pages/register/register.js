@@ -127,7 +127,7 @@ Page({
                     CompanyID: that.data.companies[that.data.companyIndex]._id,
                     DepartmentID: that.data.departments[that.data.departmentIndex]._id,
                     TeamID: that.data.teams[that.data.teamIndex]._id,
-                    OpenID: app.globalData.openid,
+                    OpenID: app.globalData.OpenID,
                     UserName: that.data.userInfo.nickName,
                 },
                 success: function (res) {

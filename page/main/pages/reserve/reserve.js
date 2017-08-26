@@ -1,3 +1,5 @@
+var app = getApp();
+var util = require('../../../../utils/util.js');
 Page({
   data: {
     showTopTips: false,
@@ -23,19 +25,57 @@ Page({
       }
     ],
 
-    date: "2016-09-01",
+    date: null,
+    dateStart: null,
     time: "12:01",
 
     countryCodes: ["+86", "+80", "+84", "+87"],
     countryCodeIndex: 0,
 
-    countries: ["中国", "美国", "英国"],
-    countryIndex: 0,
+    meeting_rooms: [],
+    meeting_roomIndex: -1,
 
     accounts: ["微信号", "QQ", "Email"],
     accountIndex: 0,
 
     isAgree: false
+  },
+  onLoad: function () {
+    console.log('reserve onLoad');
+    var that = this;
+
+    // 加载会议室
+    wx.request({
+      url: 'http://localhost:3000/api/v1/reserve/meeting_room',
+      data: {
+        OpenID: app.globalData.OpenID,
+      },
+      method: 'GET',
+      success: function (res) {
+        if (res.data.length) {
+          that.setData({
+            meeting_rooms: res.data
+          })
+        }
+      },
+    })
+
+    that.setData({
+      dateStart: new Date(),
+    })
+
+  },
+  bindMeetingRoomChange: function (e) {
+    console.log('meeting_room发生change事件，携带value值为：', e.detail.value);
+    this.setData({
+      meeting_roomIndex: e.detail.value
+    })
+  },
+  bindDateChange: function (e) {
+    console.log('date发生change事件，携带value值为：', e.detail.value);
+    this.setData({
+      date: e.detail.value
+    })
   },
   openToast: function () {
     wx.showToast({
@@ -76,11 +116,7 @@ Page({
       checkboxItems: checkboxItems
     });
   },
-  bindDateChange: function (e) {
-    this.setData({
-      date: e.detail.value
-    })
-  },
+
   bindTimeChange: function (e) {
     this.setData({
       time: e.detail.value
@@ -93,13 +129,7 @@ Page({
       countryCodeIndex: e.detail.value
     })
   },
-  bindCountryChange: function (e) {
-    console.log('picker country 发生选择改变，携带值为', e.detail.value);
 
-    this.setData({
-      countryIndex: e.detail.value
-    })
-  },
   bindAccountChange: function (e) {
     console.log('picker account 发生选择改变，携带值为', e.detail.value);
 
