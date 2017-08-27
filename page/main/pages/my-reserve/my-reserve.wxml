@@ -1,0 +1,41 @@
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-form-preview" wx:for="{{meetings}}" wx:for-item="meeting">
+            <view class="weui-form-preview__hd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">会议主题</view>
+                    <view class="weui-form-preview__value_in-hd">{{meeting.Topic}}</view>
+                </view>
+            </view>
+            <view class="weui-form-preview__bd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">会议室</view>
+                    <view class="weui-form-preview__value">电动打蛋机</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">日期</view>
+                    <view class="weui-form-preview__value">{{meeting.Date}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">开始时间</view>
+                    <view class="weui-form-preview__value">{{meeting.BeginTime}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">结束时间</view>
+                    <view class="weui-form-preview__value">{{meeting.EndTime}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">联系电话</view>
+                    <view class="weui-form-preview__value">{{meeting.Contact}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">标题标题</view>
+                    <view class="weui-form-preview__value">很长很长的名字很长很长的名字很长很长的名字很长很长的名字很长很长的名字</view>
+                </view>
+            </view>
+            <view class="weui-form-preview__ft">
+                <view data-meetingid="{{meeting._id}}" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" bindtap="cancelMeeting">取消预定</view>
+            </view>
+        </view>
+    </view>
+</view>

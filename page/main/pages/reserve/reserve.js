@@ -1,48 +1,22 @@
 var app = getApp();
-var util = require('../../../../utils/util.js');
 Page({
   data: {
-    showTopTips: false,
-
-    radioItems: [{
-        name: 'cell standard',
-        value: '0'
-      },
-      {
-        name: 'cell standard',
-        value: '1',
-        checked: true
-      }
-    ],
-    checkboxItems: [{
-        name: 'standard is dealt for u.',
-        value: '0',
-        checked: true
-      },
-      {
-        name: 'standard is dealicient for u.',
-        value: '1'
-      }
-    ],
-
-    date: null,
-    dateStart: null,
-    time: "12:01",
-
-    countryCodes: ["+86", "+80", "+84", "+87"],
-    countryCodeIndex: 0,
+    topic: '',
 
     meeting_rooms: [],
     meeting_roomIndex: -1,
 
-    accounts: ["微信号", "QQ", "Email"],
-    accountIndex: 0,
+    date: '',
+    dateStart: '',
+    beginTimeStart: '',
+    endTimeStart: '',
 
-    isAgree: false
+    contact: '',
   },
   onLoad: function () {
     console.log('reserve onLoad');
     var that = this;
+    var date = new Date(); // 当前时间
 
     // 加载会议室
     wx.request({
@@ -61,9 +35,16 @@ Page({
     })
 
     that.setData({
-      dateStart: new Date(),
+      dateStart: date,
+      beginTimeStart: date,
+      endTimeStart: date,
     })
 
+  },
+  bindInputValue: function (e) {
+    this.setData({
+      topic: e.detail.value,
+    })
   },
   bindMeetingRoomChange: function (e) {
     console.log('meeting_room发生change事件，携带value值为：', e.detail.value);
@@ -77,69 +58,56 @@ Page({
       date: e.detail.value
     })
   },
-  openToast: function () {
-    wx.showToast({
-      title: '已完成',
-      icon: 'success',
-      duration: 3000
-    });
-  },
-  radioChange: function (e) {
-    console.log('radio发生change事件，携带value值为：', e.detail.value);
-
-    var radioItems = this.data.radioItems;
-    for (var i = 0, len = radioItems.length; i < len; ++i) {
-      radioItems[i].checked = radioItems[i].value == e.detail.value;
-    }
-
+  bindBeginTimeChange: function (e) {
     this.setData({
-      radioItems: radioItems
-    });
+      beginTime: e.detail.value
+    })
   },
-  checkboxChange: function (e) {
-    console.log('checkbox发生change事件，携带value值为：', e.detail.value);
-
-    var checkboxItems = this.data.checkboxItems,
-      values = e.detail.value;
-    for (var i = 0, lenI = checkboxItems.length; i < lenI; ++i) {
-      checkboxItems[i].checked = false;
-
-      for (var j = 0, lenJ = values.length; j < lenJ; ++j) {
-        if (checkboxItems[i].value == values[j]) {
-          checkboxItems[i].checked = true;
-          break;
-        }
+  bindEndTimeChange: function (e) {
+    this.setData({
+      endTime: e.detail.value
+    })
+  },
+  bindContact: function (e) {
+    this.setData({
+      contact: e.detail.value
+    })
+  },
+  reserve: function () {
+    var that = this;
+    console.log('reserve');
+    wx.request({
+      url: 'http://localhost:3000/api/v1/reserve',
+      data: {
+        OpenID: app.globalData.OpenID,
+        Topic: that.data.topic,
+        MeetingRoom: that.data.meeting_rooms[that.data.meeting_roomIndex]._id,
+        Date: that.data.date,
+        BeginTime: that.data.beginTime,
+        EndTime: that.data.endTime,
+        Contact: that.data.contact,
+      },
+      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      success: function (res) {
+        // success
+        console.log(res);
+        wx.showToast({
+          title: '预定成功',
+          icon: 'success',
+          duration: 1000,
+          complete: function(){
+            wx.navigateBack({
+              delta: 1, // 回退前 delta(默认为1) 页面
+            })
+          }
+        })
+      },
+      fail: function () {
+        // fail
+      },
+      complete: function () {
+        // complete
       }
-    }
-
-    this.setData({
-      checkboxItems: checkboxItems
-    });
-  },
-
-  bindTimeChange: function (e) {
-    this.setData({
-      time: e.detail.value
     })
-  },
-  bindCountryCodeChange: function (e) {
-    console.log('picker country code 发生选择改变，携带值为', e.detail.value);
-
-    this.setData({
-      countryCodeIndex: e.detail.value
-    })
-  },
-
-  bindAccountChange: function (e) {
-    console.log('picker account 发生选择改变，携带值为', e.detail.value);
-
-    this.setData({
-      accountIndex: e.detail.value
-    })
-  },
-  bindAgreeChange: function (e) {
-    this.setData({
-      isAgree: !!e.detail.value.length
-    });
   }
 });
