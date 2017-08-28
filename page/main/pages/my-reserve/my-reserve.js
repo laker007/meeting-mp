@@ -1,12 +1,14 @@
 var app = getApp()
 Page({
     data: {
-        meetings: []
+        meetings: [],
+        meeting_rooms: [],
     },
     onLoad: function () {
         console.log('my-reserve onLoad');
         var that = this;
-        that.data.meetings = [];
+
+        // 获取预定记录
         wx.request({
             url: 'http://localhost:3000/api/v1/reserve',
             data: {
@@ -30,6 +32,24 @@ Page({
                 // complete
             }
         })
+        // 获取会议室
+        wx.request({
+            url: 'http://localhost:3000/api/v1/reserve/meeting_room',
+            data: {
+                OpenID: app.globalData.OpenID,
+            },
+            method: 'GET',
+            success: function (res) {
+                if (res.data.length) {
+                    that.setData({
+                        meeting_rooms: res.data
+                    })
+                }
+            },
+        })
+        // that.data.meetings.forEach(function(element) {
+        //     element.MeetingRoom
+        // }, this);
     },
     cancelMeeting: function (e) {
         console.log(e.target.dataset.meetingid);
