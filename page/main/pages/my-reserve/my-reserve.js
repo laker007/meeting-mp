@@ -68,7 +68,7 @@ Page({
                         method: 'DELETE', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
                         header: {
                             'conetent-type': 'application/json'
-                        }, // 设置请求的 header
+                        },
                         success: function (res) {
                             // success
                             console.log(res);
