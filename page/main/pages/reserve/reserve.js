@@ -1,3 +1,4 @@
+var config = require('../../../../config.js')
 var app = getApp();
 Page({
   data: {
@@ -20,7 +21,7 @@ Page({
 
     // 加载会议室
     wx.request({
-      url: 'http://localhost:3000/api/v1/reserve/meeting_room',
+      url: config.host + '/api/v1/reserve/meeting_room',
       data: {
         OpenID: app.globalData.OpenID,
       },
@@ -77,7 +78,7 @@ Page({
     var that = this;
     console.log('reserve');
     wx.request({
-      url: 'http://localhost:3000/api/v1/reserve',
+      url: config.host + '/api/v1/reserve',
       data: {
         OpenID: app.globalData.OpenID,
         Topic: that.data.topic,
@@ -95,7 +96,7 @@ Page({
           title: '预定成功',
           icon: 'success',
           duration: 1000,
-          complete: function(){
+          complete: function () {
             wx.navigateBack({
               delta: 1, // 回退前 delta(默认为1) 页面
             })

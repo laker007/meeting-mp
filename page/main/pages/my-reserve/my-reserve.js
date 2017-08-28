@@ -1,3 +1,4 @@
+var config = require('../../../../config.js')
 var app = getApp()
 Page({
     data: {
@@ -10,7 +11,7 @@ Page({
 
         // 获取预定记录
         wx.request({
-            url: 'http://localhost:3000/api/v1/reserve',
+            url: config.host + '/api/v1/reserve',
             data: {
                 OpenID: app.globalData.OpenID
             },
@@ -34,7 +35,7 @@ Page({
         })
         // 获取会议室
         wx.request({
-            url: 'http://localhost:3000/api/v1/reserve/meeting_room',
+            url: config.host + '/api/v1/reserve/meeting_room',
             data: {
                 OpenID: app.globalData.OpenID,
             },
@@ -61,7 +62,7 @@ Page({
                 if (res.confirm) {
                     console.log('用户点击确定')
                     wx.request({
-                        url: 'http://localhost:3000/api/v1/reserve',
+                        url: config.host + '/api/v1/reserve',
                         data: {
                             MeetingID: e.target.dataset.meetingid
                         },

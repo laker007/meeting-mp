@@ -1,3 +1,4 @@
+var config = require('../../../../config.js')
 var app = getApp();
 Page({
     data: {
@@ -5,7 +6,7 @@ Page({
     },
     onLoad: function () {
         wx.request({
-            url: 'http://localhost:3000/api/v1/userinfo',
+            url: config.host + '/api/v1/userinfo',
             data: {
                 OpenID: app.globalData.OpenID,
             },

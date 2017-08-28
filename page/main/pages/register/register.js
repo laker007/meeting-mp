@@ -1,5 +1,4 @@
-//index.js
-//获取应用实例
+var config = require('../../../../config.js')
 var app = getApp()
 Page({
     data: {
@@ -26,7 +25,7 @@ Page({
 
         // 获取公司
         wx.request({
-            url: 'http://localhost:3000/api/v1/register/company',
+            url: config.host + '/api/v1/register/company',
             method: 'GET',
             header: {
                 'content-type': 'application/json'
@@ -69,7 +68,7 @@ Page({
         console.log(companyIndex);
         console.log(that.data);
         wx.request({
-            url: 'http://localhost:3000/api/v1/register/department',
+            url: config.host + '/api/v1/register/department',
             method: 'GET',
             header: {
                 'conetent-type': 'application/json'
@@ -92,7 +91,7 @@ Page({
         console.log(departmentIndex);
         console.log(that.data);
         wx.request({
-            url: 'http://localhost:3000/api/v1/register/team',
+            url: config.host + '/api/v1/register/team',
             method: 'GET',
             header: {
                 'conetent-type': 'application/json'
@@ -118,7 +117,7 @@ Page({
         // 用户同时选择 公司 部门 团队 才能注册
         if ((that.data.companyIndex) >= 0 && (that.data.departmentIndex) >= 0 && (that.data.teamIndex) >= 0) {
             wx.request({
-                url: 'http://localhost:3000/api/v1/register',
+                url: config.host + '/api/v1/register',
                 method: 'POST',
                 header: {
                     'conetent-type': 'application/json'
@@ -133,11 +132,11 @@ Page({
                 success: function (res) {
                     console.log(res);
                     wx.reLaunch({
-                        url:'../../pages/temp/temp'
+                        url: '../../pages/temp/temp'
                     })
                 }
             })
-           
+
         } else {
             // 弹出提示 -> 让用户三个都进行选择
             wx.showModal({
