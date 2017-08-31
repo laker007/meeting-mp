@@ -87,6 +87,7 @@ Page({
         Date: that.data.date,
         BeginTime: that.data.beginTime,
         EndTime: that.data.endTime,
+        Host: app.globalData.userInfo.nickName,
         Contact: that.data.contact,
       },
       method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT

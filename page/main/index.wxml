@@ -33,6 +33,13 @@
                     <view class="weui-cell__bd">我的会议</view>
                     <view class="weui-cell__ft weui-cell__ft_in-access"></view>
                 </navigator>
+                <navigator url="./pages/meeting-room/meeting-room" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                    <view class="weui-cell__hd">
+                        <image src="/image/icon_meeting.png"></image>
+                    </view>
+                    <view class="weui-cell__bd">会议室</view>
+                    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                </navigator>
             </view>
         </block>
 

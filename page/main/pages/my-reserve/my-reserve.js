@@ -3,7 +3,6 @@ var app = getApp()
 Page({
     data: {
         meetings: [],
-        meeting_rooms: [],
     },
     onLoad: function () {
         console.log('my-reserve onLoad');

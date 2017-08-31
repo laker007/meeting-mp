@@ -11,7 +11,8 @@
     "page/main/pages/reserve/reserve",
 
     "page/main/pages/my-reserve/my-reserve",
-    "page/main/pages/my-meeting/my-meeting"
+    "page/main/pages/my-meeting/my-meeting",
+    "page/main/pages/meeting-room/meeting-room"
   ],
   "window": {
     "backgroundTextStyle": "light",
