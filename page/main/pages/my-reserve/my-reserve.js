@@ -33,24 +33,6 @@ Page({
                 // complete
             }
         })
-        // 获取会议室
-        wx.request({
-            url: config.host + '/api/v1/reserve/meeting_room',
-            data: {
-                OpenID: app.globalData.OpenID,
-            },
-            method: 'GET',
-            success: function (res) {
-                if (res.data.length) {
-                    that.setData({
-                        meeting_rooms: res.data
-                    })
-                }
-            },
-        })
-        // that.data.meetings.forEach(function(element) {
-        //     element.MeetingRoom
-        // }, this);
     },
     cancelMeeting: function (e) {
         console.log(e.target.dataset.meetingid);

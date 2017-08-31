@@ -5,7 +5,7 @@
 // 此处主机域名是腾讯云解决方案分配的域名
 // 小程序后台服务解决方案：https://www.qcloud.com/solution/la
 
-var host = "http://122.152.215.195:3000"
+var host = "http://localhost:3000"
 
 var config = {
 

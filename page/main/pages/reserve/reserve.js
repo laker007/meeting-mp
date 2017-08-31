@@ -21,7 +21,7 @@ Page({
 
     // 加载会议室
     wx.request({
-      url: config.host + '/api/v1/reserve/meeting_room',
+      url: config.host + '/api/v1/meeting_room',
       data: {
         OpenID: app.globalData.OpenID,
       },
@@ -83,6 +83,7 @@ Page({
         OpenID: app.globalData.OpenID,
         Topic: that.data.topic,
         MeetingRoom: that.data.meeting_rooms[that.data.meeting_roomIndex]._id,
+        MeetingRoomName: that.data.meeting_rooms[that.data.meeting_roomIndex].MeetingRoomName,
         Date: that.data.date,
         BeginTime: that.data.beginTime,
         EndTime: that.data.endTime,

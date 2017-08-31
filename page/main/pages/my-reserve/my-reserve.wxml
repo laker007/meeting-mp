@@ -10,7 +10,7 @@
             <view class="weui-form-preview__bd">
                 <view class="weui-form-preview__item">
                     <view class="weui-form-preview__label">会议室</view>
-                    <view class="weui-form-preview__value">电动打蛋机</view>
+                    <view class="weui-form-preview__value">{{meeting.MeetingRoomName}}</view>
                 </view>
                 <view class="weui-form-preview__item">
                     <view class="weui-form-preview__label">日期</view>
